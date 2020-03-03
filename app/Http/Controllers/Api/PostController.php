@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Post\UpdatePostRequest;
 use App\Http\Requests\Api\Post\StorePostRequest;
 use App\Http\Resources\Api\PostResource;
-use Illuminate\Container\Container;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use App\Post;

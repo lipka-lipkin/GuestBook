@@ -18,7 +18,7 @@ class LoginEmailThrottle extends ThrottleRequests
             'Email-RateLimit-Remaining' => $remainingAttempts,
         ];
 
-        if (! is_null($retryAfter)) {
+        if (!is_null($retryAfter)) {
             $headers['Retry-After'] = $retryAfter;
             $headers['X-RateLimit-Reset'] = $this->availableAt($retryAfter);
         }
