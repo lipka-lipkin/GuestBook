@@ -14,16 +14,16 @@ use Illuminate\Http\Request;
 */
 
 Route::group(['middleware' => 'throttle:60,1'], function(){
-
     Route::post('auth/register', 'AuthController@register');
-    Route::post('auth/login','AuthController@login');
 
     Route::group(['middleware' => 'auth:api'], function() {
         Route::get('user/self', 'UserController@self');
         Route::apiResource('posts', 'PostController');
         Route::apiResource('posts.answers', 'AnswerController');
     });
-
 });
+
+Route::post('auth/login','AuthController@login')
+    ->middleware(['login.email.throttle:10,100', 'throttle:10,100']);
 
 Route::post('file', 'FileController@store')->middleware('throttle:5,1');
